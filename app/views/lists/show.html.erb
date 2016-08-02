@@ -1,0 +1,19 @@
+<main>
+  <h2>Items for <%= @list.name %>:</h2>
+  <%= @items.each do |item| %>
+    <p>
+      <%= item.name %> is due on <%= item.due_on %>
+      <%= link_to "Mark as completed", "/items/#{item.id}", method: delete %>
+    </p>
+  <% end %>
+
+  <%= form_for @item, url: "/lists/#{@list.name}/items" do |f| %>
+    <%= f.hidden_field :list_id, value: @list.id %>
+    <%= f.label "New item for #{@list.name}" %>
+    <%= f.text_field :name %>
+    <%= f.label :due_on %>
+    <%= f.date_field :due_on %>
+    <%= f.submit "Add" %>
+
+  <% end %>
+</main>

@@ -2,15 +2,18 @@ class ListsController < ApplicationController
 
   def index
     @lists = List.all
+    @list = List.new
   end
 
   def create
-    @list = List.new
-    List.create(params["list"])
+    @list = List.create(name: params["list"]["name"])
+    redirect_to "/lists"
   end
 
   def show
-    #code
+    @list = List.find_by(name: params["name"])
+    @items = Item.where(list_id: @list.id, completed_on: nil)
+    @item = Item.new
   end
 
 end
