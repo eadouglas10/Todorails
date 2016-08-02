@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+
+  get '/lists' => 'lists#index'
+  post '/lists' => 'lists#create'
+  get '/lists/:name' => 'lists#show'
+
+  post '/lists/:name/items' => 'items#create'
+  patch '/items/:id' => 'items#update'
+  delete '/items/:id' => 'items#complete'
+  get '/next' => 'items#random'
+  get '/search?q=' => 'items#search'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
