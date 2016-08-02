@@ -1,0 +1,13 @@
+<main>
+  <% @lists.each do |list| %>
+  <p>
+    <%= link_to list.name, "/lists/#{list.name}" %>
+  </p>
+
+  <%= form_for @list, url: "/lists" do |f| %>
+  <%= f.label "New list name" %>
+    <%= f.text_field :name %>
+    <%= f.submit "Add" %>
+
+  <% end %>
+</main>

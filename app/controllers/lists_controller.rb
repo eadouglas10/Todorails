@@ -1,11 +1,12 @@
 class ListsController < ApplicationController
 
   def index
-    #code
+    @lists = List.all
   end
 
   def create
-    #code
+    @list = List.new
+    List.create(params["list"])
   end
 
   def show
