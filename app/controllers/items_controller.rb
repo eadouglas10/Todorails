@@ -24,7 +24,8 @@ class ItemsController < ApplicationController
   end
 
   def random
-    #code
+    @items = Item.where(completed_on: nil)
+    @item = @items.sample
   end
 
   def search
