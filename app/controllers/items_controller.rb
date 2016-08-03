@@ -1,7 +1,9 @@
 class ItemsController < ApplicationController
 
   def create
-    #code
+    @item = Item.create(item_params)
+    @list = @item.list
+    redirect_to "/lists/#{@list.name}"
   end
 
   def update
@@ -9,7 +11,10 @@ class ItemsController < ApplicationController
   end
 
   def complete
-    #code
+    @item = Item.find(params["id"])
+    @item.completed_on = Date.today
+    @item.save
+    redirect_to "/lists/#{@item.list.name}"
   end
 
   def random
@@ -19,5 +24,9 @@ class ItemsController < ApplicationController
   def search
     #code
   end
+
+  private def item_params
+  params.require("item").permit(:name, :list_id, :due_on)
+end
 
 end

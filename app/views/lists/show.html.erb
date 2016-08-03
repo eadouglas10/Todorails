@@ -1,9 +1,9 @@
 <main>
   <h2>Items for <%= @list.name %>:</h2>
-  <%= @items.each do |item| %>
+  <% @items.each do |item| %>
     <p>
       <%= item.name %> is due on <%= item.due_on %>
-      <%= link_to "Mark as completed", "/items/#{item.id}", method: delete %>
+      <%= link_to "Mark as completed", "/items/#{item.id}", method: :delete %>
     </p>
   <% end %>
 
