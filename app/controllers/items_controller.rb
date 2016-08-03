@@ -13,6 +13,7 @@ class ItemsController < ApplicationController
   def update
     @item = Item.find(params["id"])
     @item.update(item_params)
+    redirect_to "/lists/#{@item.list.name}"
   end
 
   def complete
