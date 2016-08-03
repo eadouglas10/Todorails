@@ -3,6 +3,7 @@
   <% @items.each do |item| %>
     <p>
       <%= item.name %> is due on <%= item.due_on %>
+      <%= link_to "Edit item", "/items/#{item.id}/edit" %>
       <%= link_to "Mark as completed", "/items/#{item.id}", method: :delete %>
     </p>
   <% end %>

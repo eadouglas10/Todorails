@@ -1,0 +1,12 @@
+<main>
+  <h3>Make changes to <%= @item.name %></h3>
+
+  <%= form_for @item, url: "/items/#{item.id}", method: :patch do |f| %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :due_on %>
+    <%= f.text_field :due_on %>
+
+  <% end %>
+</main>

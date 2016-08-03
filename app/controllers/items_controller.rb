@@ -6,8 +6,13 @@ class ItemsController < ApplicationController
     redirect_to "/lists/#{@list.name}"
   end
 
+  def edit
+    @item = Item.find(params["id"])
+  end
+
   def update
-    #code
+    @item = Item.find(params["id"])
+    @item.update(item_params)
   end
 
   def complete

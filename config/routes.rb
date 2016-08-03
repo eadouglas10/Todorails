@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/lists/:name' => 'lists#show'
 
   post '/lists/:name/items' => 'items#create'
+  get '/items/:id/edit' => 'items#edit'
   patch '/items/:id' => 'items#update'
   delete '/items/:id' => 'items#complete'
   get '/next' => 'items#random'
