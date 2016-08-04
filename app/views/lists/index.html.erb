@@ -11,6 +11,13 @@
     <%= f.submit "Add" %>
   <% end %>
 
+  <%= form_for @item, url: "/search?q=#{:name}", method: :get do |f| %>
+    <%= f.label "Search items" %>
+    <%= f.text_field :name %>
+    <%= f.submit "Search" %>
+
+  <% end %>
+
   <%= link_to "I just want to focus on one thing", "/next" %>
 
 </main>

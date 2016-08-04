@@ -29,7 +29,8 @@ class ItemsController < ApplicationController
   end
 
   def search
-    #code
+    @item = Item.new
+    @item = Item.find_by(name: params["item"]["name"])
   end
 
   private def item_params
